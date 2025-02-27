@@ -3,8 +3,18 @@ import CryptoList from "../components/CryptoList";
 import axios from "axios";
 import "../styles/CryptoPage.css";
 
+// ✅ Определяем интерфейс Crypto
+interface Crypto {
+    id: string;
+    name: string;
+    symbol: string;
+    image: string;
+    current_price: number;
+    market_cap: number; // Добавил market_cap
+}
+
 const CryptoPage = () => {
-    const [cryptos, setCryptos] = useState([]);
+    const [cryptos, setCryptos] = useState<Crypto[]>([]); // Указываем тип
     const [search, setSearch] = useState("");
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(100000);
@@ -17,7 +27,7 @@ const CryptoPage = () => {
     useEffect(() => {
         const fetchCryptos = async () => {
             try {
-                const response = await axios.get(
+                const response = await axios.get<Crypto[]>( // Указываем тип ответа
                     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
                 );
                 setCryptos(response.data);
@@ -72,7 +82,6 @@ const CryptoPage = () => {
                         className="filter-input"
                     />
                 </div>
-
             </div>
             <CryptoList cryptos={filteredCryptos} favorites={favorites} toggleFavorite={toggleFavorite} />
         </div>
