@@ -3,18 +3,18 @@ import "../styles/MainLayout.css";
 
 const MainLayout = () => {
     return (
-        <>
-            <header>
-                <h1>Криптовалюты</h1>
-                <nav>
-                    <Link to="/">Главная</Link>
-                    <Link to="/favorites">Избранное</Link>
+        <div className="main-layout">
+            <header className="header">
+                <h1 className="logo">Криптовалюты</h1>
+                <nav className="nav">
+                    <Link to="/" className="nav-button">Главная</Link>
+                    <Link to="/favorites" className="nav-button">Избранное</Link>
                 </nav>
             </header>
-            <main>
+            <main className="main">
                 <Outlet />
             </main>
-        </>
+        </div>
     );
 };
 

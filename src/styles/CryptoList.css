@@ -1,0 +1,80 @@
+.crypto-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.crypto-card {
+    background-color: #2d2d2d;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    position: relative;
+    text-align: center;
+}
+
+.crypto-card:hover {
+    transform: scale(1.05);
+}
+
+.crypto-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.crypto-name {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.crypto-price {
+    color: #4caf50;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.favorite-button:hover {
+    opacity: 0.8;
+}
+
+.favorite-button.bg-red-500 {
+    background-color: #f44336;
+}
+
+.favorite-button.bg-blue-500 {
+    background-color: #2196f3;
+}
+
+
+@media (max-width: 1024px) {
+    .crypto-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .crypto-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
